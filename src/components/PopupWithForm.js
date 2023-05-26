@@ -26,6 +26,7 @@ function PopupWithForm(props) {
           <button
             class="overlay__form-close-button"
             id="closeProfileOverlay"
+            onClick={props.isClose}
           ></button>
         </div>
       </section>
