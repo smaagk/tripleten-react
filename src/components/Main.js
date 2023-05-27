@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import Card from "./Card";
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -27,29 +28,11 @@ function Main(props) {
           onClick={props.handleAddPlaceClick}
         ></button>
       </section>
-
+      <div id="gallery" class="content__elements-grid">
+        <Card cards={props.cards} handleCardClick={props.handleCardClick} />
+      </div>
       <section class="elements">
-        <div id="gallery" class="content__elements-grid">
-          {props.cards.map((card) => (
-            <div class="card__template">
-              <div class="elements">
-                <img
-                  class="content__elements-image"
-                  src={card.link}
-                  alt="imagenes-tarjetas"
-                />
-                <button class="content__elements__delete-button"></button>
-                <div class="conent__elements-title-container">
-                  <h2 class="content__elements-title"></h2>
-                  <div class="content__elements-likes-container">
-                    <button class="content__elements__button-like"></button>
-                    <span class="content__elements__numbers-like">0</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div id="gallery" class="content__elements-grid"></div>
       </section>
     </main>
   );

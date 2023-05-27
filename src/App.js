@@ -14,6 +14,7 @@ function App() {
   const [isEditAvatarPopupOpen, setisAvatarPopupOpen] = useState(false);
   const [currentUser, setcurrentUser] = useState({});
   const [cards, setCards] = useState([]);
+  const [selectedCard, setselectedCard] = useState({});
 
   function handleEditAvatarClick() {
     setisAvatarPopupOpen(true);
@@ -31,6 +32,11 @@ function App() {
     setisAvatarPopupOpen(false);
     setisAddPlacePopupOpen(false);
     setisEditProfilePopupOpen(false);
+    setselectedCard({});
+  }
+
+  function handleCardClick(oCard) {
+    setselectedCard(oCard);
   }
 
   useEffect(() => {
@@ -53,52 +59,51 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <body class="root">
-        <Header />
-        <Main
-          handleEditProfileClick={handleEditProfileClick}
-          handleAddPlaceClick={handleAddPlaceClick}
-          handleEditAvatarClick={handleEditAvatarClick}
-          cards={cards}
-        />
-        <Footer />
-        <AddPlacePopup
-          title=""
-          name=""
-          isClose={handleClosePopup}
-          isOpen={isAddPlacePopupOpen ? "true" : ""}
-        />
-        <EditAvatarPopup
-          title=""
-          name=""
-          isClose={handleClosePopup}
-          isOpen={isEditAvatarPopupOpen ? "true" : ""}
-        />
-        <EditProfilePopup
-          title=""
-          name=""
-          isClose={handleClosePopup}
-          isOpen={isEditProfilePopupOpen ? "true" : ""}
-        />
+      <Header />
+      <Main
+        handleEditProfileClick={handleEditProfileClick}
+        handleAddPlaceClick={handleAddPlaceClick}
+        handleEditAvatarClick={handleEditAvatarClick}
+        cards={cards}
+        handleCardClick={handleCardClick}
+      />
+      <Footer />
+      <AddPlacePopup
+        title=""
+        name=""
+        isClose={handleClosePopup}
+        isOpen={isAddPlacePopupOpen ? "true" : ""}
+      />
+      <EditAvatarPopup
+        title=""
+        name=""
+        isClose={handleClosePopup}
+        isOpen={isEditAvatarPopupOpen ? "true" : ""}
+      />
+      <EditProfilePopup
+        title=""
+        name=""
+        isClose={handleClosePopup}
+        isOpen={isEditProfilePopupOpen ? "true" : ""}
+      />
 
-        <template class="card__template">
-          <div class="elements">
-            <img
-              class="content__elements-image"
-              src=" "
-              alt="imagenes-tarjetas"
-            />
-            <button class="content__elements__delete-button"></button>
-            <div class="conent__elements-title-container">
-              <h2 class="content__elements-title"></h2>
-              <div class="content__elements-likes-container">
-                <button class="content__elements__button-like"></button>
-                <span class="content__elements__numbers-like">0</span>
-              </div>
+      <template class="card__template">
+        <div class="elements">
+          <img
+            class="content__elements-image"
+            src=" "
+            alt="imagenes-tarjetas"
+          />
+          <button class="content__elements__delete-button"></button>
+          <div class="conent__elements-title-container">
+            <h2 class="content__elements-title"></h2>
+            <div class="content__elements-likes-container">
+              <button class="content__elements__button-like"></button>
+              <span class="content__elements__numbers-like">0</span>
             </div>
           </div>
-        </template>
-      </body>
+        </div>
+      </template>
     </CurrentUserContext.Provider>
   );
 }
