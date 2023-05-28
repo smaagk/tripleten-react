@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import AddPlacePopup from "./components/AddPlacePopup";
 import EditAvatarPopup from "./components/EditAvatarPopup";
 import EditProfilePopup from "./components/EditProfilePopup";
+import ImagenPopup from "./components/ImagePopup";
 import api from "./utils/api";
 import { CurrentUserContext } from "./contexts/CurrentUserContext";
 
@@ -73,7 +74,7 @@ function App() {
         name=""
         isClose={handleClosePopup}
         isOpen={isAddPlacePopupOpen ? "true" : ""}
-      />
+      ></AddPlacePopup>
       <EditAvatarPopup
         title=""
         name=""
@@ -86,24 +87,7 @@ function App() {
         isClose={handleClosePopup}
         isOpen={isEditProfilePopupOpen ? "true" : ""}
       />
-
-      <template class="card__template">
-        <div class="elements">
-          <img
-            class="content__elements-image"
-            src=" "
-            alt="imagenes-tarjetas"
-          />
-          <button class="content__elements__delete-button"></button>
-          <div class="conent__elements-title-container">
-            <h2 class="content__elements-title"></h2>
-            <div class="content__elements-likes-container">
-              <button class="content__elements__button-like"></button>
-              <span class="content__elements__numbers-like">0</span>
-            </div>
-          </div>
-        </div>
-      </template>
+      <ImagenPopup selectedCard={selectedCard} isClose={handleClosePopup} />
     </CurrentUserContext.Provider>
   );
 }
