@@ -1,19 +1,19 @@
 function Card(props) {
   return props.cards.map((card) => (
-    <div class="card__template">
-      <div class="elements">
+    <div className="card__template" key={Math.random()}>
+      <div className="elements">
         <img
-          class="content__elements-image"
+          className="content__elements-image"
           src={card.link}
           alt="imagenes-tarjetas"
           onClick={() => props.handleCardClick(card)}
         />
-        <button class="content__elements__delete-button"></button>
-        <div class="conent__elements-title-container">
-          <h2 class="content__elements-title">{card.name}</h2>
-          <div class="content__elements-likes-container">
-            <button class="content__elements__button-like"></button>
-            <span class="content__elements__numbers-like">
+        <button className="content__elements__delete-button"></button>
+        <div className="conent__elements-title-container">
+          <h2 className="content__elements-title">{card.name}</h2>
+          <div className="content__elements-likes-container">
+            <button className="content__elements__button-like"></button>
+            <span className="content__elements__numbers-like">
               {card.likes.length}
             </span>
           </div>

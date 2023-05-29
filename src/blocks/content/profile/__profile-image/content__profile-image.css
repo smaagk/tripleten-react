@@ -3,6 +3,8 @@
   height: 7.9rem;
   border-radius: 50%;
   object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .content__profile-image:hover {

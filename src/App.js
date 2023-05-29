@@ -13,6 +13,7 @@ function App() {
   const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setisAvatarPopupOpen] = useState(false);
+  const [isImagePopupOpen, setisImagePopupOpen] = useState(false);
   const [currentUser, setcurrentUser] = useState({});
   const [cards, setCards] = useState([]);
   const [selectedCard, setselectedCard] = useState({});
@@ -33,11 +34,15 @@ function App() {
     setisAvatarPopupOpen(false);
     setisAddPlacePopupOpen(false);
     setisEditProfilePopupOpen(false);
-    setselectedCard({});
+    setisImagePopupOpen(false);
+    setTimeout(() => {
+      setselectedCard({});
+    }, 1000);
   }
 
   function handleCardClick(oCard) {
     setselectedCard(oCard);
+    setisImagePopupOpen(true);
   }
 
   useEffect(() => {
@@ -70,24 +75,28 @@ function App() {
       />
       <Footer />
       <AddPlacePopup
-        title=""
+        title="Nuevo lugar"
         name=""
         isClose={handleClosePopup}
         isOpen={isAddPlacePopupOpen ? "true" : ""}
       ></AddPlacePopup>
       <EditAvatarPopup
-        title=""
+        title="Cambiar foto de perfil"
         name=""
         isClose={handleClosePopup}
         isOpen={isEditAvatarPopupOpen ? "true" : ""}
       />
       <EditProfilePopup
-        title=""
+        title="Editar Perfil"
         name=""
         isClose={handleClosePopup}
         isOpen={isEditProfilePopupOpen ? "true" : ""}
       />
-      <ImagenPopup selectedCard={selectedCard} isClose={handleClosePopup} />
+      <ImagenPopup
+        selectedCard={selectedCard}
+        isClose={handleClosePopup}
+        isOpen={isImagePopupOpen ? "true" : ""}
+      />
     </CurrentUserContext.Provider>
   );
 }
