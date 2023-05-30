@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import AddPlacePopup from "./components/AddPlacePopup";
 import EditAvatarPopup from "./components/EditAvatarPopup";
 import EditProfilePopup from "./components/EditProfilePopup";
-import ImagenPopup from "./components/ImagePopup";
+import ImagePopup from "./components/ImagePopup";
 import api from "./utils/api";
 import { CurrentUserContext } from "./contexts/CurrentUserContext";
 
@@ -37,7 +37,7 @@ function App() {
     setisImagePopupOpen(false);
     setTimeout(() => {
       setselectedCard({});
-    }, 1000);
+    }, 500);
   }
 
   function handleCardClick(oCard) {
@@ -92,7 +92,7 @@ function App() {
         isClose={handleClosePopup}
         isOpen={isEditProfilePopupOpen ? "true" : ""}
       />
-      <ImagenPopup
+      <ImagePopup
         selectedCard={selectedCard}
         isClose={handleClosePopup}
         isOpen={isImagePopupOpen ? "true" : ""}

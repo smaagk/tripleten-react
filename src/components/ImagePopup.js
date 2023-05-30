@@ -1,4 +1,4 @@
-function ImagenPopup(props) {
+function ImagePopup(props) {
   return (
     <section
       className={`overlay ${props.isOpen == "true" ? "overlay__visible" : ""} `}
@@ -25,4 +25,4 @@ function ImagenPopup(props) {
   );
 }
 
-export default ImagenPopup;
+export default ImagePopup;

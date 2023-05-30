@@ -7,23 +7,23 @@ function AddPlacePopup(props) {
       isClose={props.isClose}
       title={props.title}
     >
-      <div class="overlay__form-input-grup">
+      <div className="overlay__form-input-grup">
         <input
-          class="overlay__text-input"
+          className="overlay__text-input"
           type="text"
           name="place"
           id="overlay__form-place"
           placeholder="Título"
           required
-          minlength="2"
-          maxlength="30"
+          minLength="2"
+          maxLength="30"
         />
       </div>
-      <span class="overlay__form-input-error overlay__form-place-error"></span>
+      <span className="overlay__form-input-error overlay__form-place-error"></span>
 
-      <div class="overlay__form-input-grup">
+      <div className="overlay__form-input-grup">
         <input
-          class="overlay__text-input"
+          className="overlay__text-input"
           type="url"
           name="imageURL"
           id="overlay__form-imageURL"
@@ -31,7 +31,7 @@ function AddPlacePopup(props) {
           required
         />
       </div>
-      <span class="overlay__form-input-error overlay__form-imageURL-error"></span>
+      <span className="overlay__form-input-error overlay__form-imageURL-error"></span>
     </PopupWithForm>
   );
 }
