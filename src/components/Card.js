@@ -1,26 +1,38 @@
+import React from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+
 function Card(props) {
-  return props.cards.map((card) => (
-    <div className="card__template" key={Math.random()}>
+  const currentUser = React.useContext(CurrentUserContext);
+  const isOwn = props.card.owner._id === currentUser._id;
+  const cardDeleteButtonClassName = `content__elements__delete-button ${
+    isOwn ? "content__elements__delete-button_active" : ""
+  }`;
+  const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
+  const cardLikeButtonClassName = `content__elements__button-like ${
+    isLiked ? "content__elements__button-like-active" : ""
+  }`;
+  return (
+    <div className="card__template">
       <div className="elements">
         <img
           className="content__elements-image"
-          src={card.link}
+          src={props.card.link}
           alt="imagenes-tarjetas"
-          onClick={() => props.handleCardClick(card)}
+          onClick={() => props.handleCardClick(props.card)}
         />
-        <button className="content__elements__delete-button"></button>
+        <button className={cardDeleteButtonClassName}></button>
         <div className="conent__elements-title-container">
-          <h2 className="content__elements-title">{card.name}</h2>
+          <h2 className="content__elements-title">{props.card.name}</h2>
           <div className="content__elements-likes-container">
-            <button className="content__elements__button-like"></button>
+            <button className={cardLikeButtonClassName}></button>
             <span className="content__elements__numbers-like">
-              {card.likes.length}
+              {props.card.likes.length}
             </span>
           </div>
         </div>
       </div>
     </div>
-  ));
+  );
 }
 
 export default Card;

@@ -10,6 +10,7 @@
   margin-top: 18px;
   margin-left: 233px;
   transition: opacity 0.5s;
+  display: none;
 }
 
 .content__elements__delete-button:hover {

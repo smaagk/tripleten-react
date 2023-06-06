@@ -33,7 +33,14 @@ function Main(props) {
         ></button>
       </section>
       <div id="gallery" className="content__elements-grid">
-        <Card cards={props.cards} handleCardClick={props.handleCardClick} />
+        {props.cards.map((card) => (
+          <Card
+            card={card}
+            handleCardClick={props.handleCardClick}
+            key={Math.random()}
+          />
+        ))}
+        ;
       </div>
     </main>
   );
