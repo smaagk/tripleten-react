@@ -45,6 +45,35 @@ function App() {
     setisImagePopupOpen(true);
   }
 
+  function handleCardLike(oCard) {
+    // Verifica una vez más si a esta tarjeta ya le han dado like
+    const isLiked = oCard.likes.some((i) => i._id === currentUser._id);
+
+    // Envía una petición a la API y obtén los datos actualizados de la tarjeta
+    api.changeLikeCardStatus(oCard._id, !isLiked).then((newCard) => {
+      setCards((state) =>
+        state.map((c) => (c._id === oCard._id ? newCard : c))
+      );
+    });
+  }
+
+  function handleCardDelete(oCard) {
+    api.deleteCard(oCard._id).then(() => {
+      setCards((state) => state.filter((card) => card._id !== oCard._id));
+    });
+  }
+  //aquí me quede
+  function handleUpdateUser(oInfoUser) {
+    api.setUserInfo(oInfoUser.name, oInfoUser.about).then(() => {
+      setcurrentUser({
+        name: oInfoUser.name,
+        about: oInfoUser.about,
+        avatar: currentUser.avatar,
+        _id: currentUser._id,
+      });
+    });
+  }
+
   useEffect(() => {
     api
       .getInitialUserMe()
@@ -72,6 +101,8 @@ function App() {
         handleEditAvatarClick={handleEditAvatarClick}
         cards={cards}
         handleCardClick={handleCardClick}
+        handleCardLike={handleCardLike}
+        handleCardDelete={handleCardDelete}
       />
       <Footer />
       <AddPlacePopup
@@ -91,6 +122,7 @@ function App() {
         name=""
         isClose={handleClosePopup}
         isOpen={isEditProfilePopupOpen ? "true" : ""}
+        onUpdateUser={handleUpdateUser}
       />
       <ImagePopup
         selectedCard={selectedCard}

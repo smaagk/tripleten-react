@@ -37,6 +37,8 @@ function Main(props) {
           <Card
             card={card}
             handleCardClick={props.handleCardClick}
+            handleCardLike={props.handleCardLike}
+            handleCardDelete={props.handleCardDelete}
             key={Math.random()}
           />
         ))}

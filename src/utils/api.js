@@ -27,7 +27,7 @@ class Api {
     return this._handleFetch("/users/me");
   }
 
-  patchInitialUserMe(name, about) {
+  setUserInfo(name, about) {
     return this._handleFetch(
       "/users/me",
       "PATCH",
@@ -53,12 +53,12 @@ class Api {
     return this._handleFetch("/cards/" + cardId, "DELETE");
   }
 
-  putLikeButtonCard(cardId) {
-    return this._handleFetch("/cards/likes/" + cardId, "PUT");
-  }
-
-  deleteLikeButtonCard(cardId) {
-    return this._handleFetch("/cards/likes/" + cardId, "DELETE");
+  changeLikeCardStatus(cardId, isLiked) {
+    if (isLiked === true) {
+      return this._handleFetch("/cards/likes/" + cardId, "PUT");
+    } else {
+      return this._handleFetch("/cards/likes/" + cardId, "DELETE");
+    }
   }
 
   updateUserMeAvatar(avatar) {

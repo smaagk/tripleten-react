@@ -20,11 +20,17 @@ function Card(props) {
           alt="imagenes-tarjetas"
           onClick={() => props.handleCardClick(props.card)}
         />
-        <button className={cardDeleteButtonClassName}></button>
+        <button
+          className={cardDeleteButtonClassName}
+          onClick={() => props.handleCardDelete(props.card)}
+        ></button>
         <div className="conent__elements-title-container">
           <h2 className="content__elements-title">{props.card.name}</h2>
           <div className="content__elements-likes-container">
-            <button className={cardLikeButtonClassName}></button>
+            <button
+              className={cardLikeButtonClassName}
+              onClick={() => props.handleCardLike(props.card)}
+            ></button>
             <span className="content__elements__numbers-like">
               {props.card.likes.length}
             </span>

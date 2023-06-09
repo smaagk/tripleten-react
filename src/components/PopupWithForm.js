@@ -13,6 +13,7 @@ function PopupWithForm(props) {
             id="profileForm"
             noValidate
             name={props.name}
+            onSubmit={props.onSubmit}
           >
             {props.children}
             <button
