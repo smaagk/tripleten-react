@@ -62,7 +62,7 @@ function App() {
       setCards((state) => state.filter((card) => card._id !== oCard._id));
     });
   }
-  //aquí me quede
+
   function handleUpdateUser(oInfoUser) {
     api.setUserInfo(oInfoUser.name, oInfoUser.about).then(() => {
       setcurrentUser({
@@ -71,6 +71,19 @@ function App() {
         avatar: currentUser.avatar,
         _id: currentUser._id,
       });
+      handleClosePopup();
+    });
+  }
+
+  function handleUpdateAvatar(oAvatarUser) {
+    api.updateUserMeAvatar(oAvatarUser.avatar).then(() => {
+      setcurrentUser({
+        avatar: oAvatarUser.avatar,
+        name: currentUser.name,
+        about: currentUser.about,
+        _id: currentUser._id,
+      });
+      handleClosePopup();
     });
   }
 
@@ -116,6 +129,7 @@ function App() {
         name=""
         isClose={handleClosePopup}
         isOpen={isEditAvatarPopupOpen ? "true" : ""}
+        onUpdateAvatar={handleUpdateAvatar}
       />
       <EditProfilePopup
         title="Editar Perfil"
