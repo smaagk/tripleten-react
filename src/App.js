@@ -87,6 +87,13 @@ function App() {
     });
   }
 
+  function handleAddPlaceSubmit(oAddPlace) {
+    api.postNewCard(oAddPlace.title, oAddPlace.url).then((newCard) => {
+      setCards([newCard, ...cards]);
+      handleClosePopup();
+    });
+  }
+
   useEffect(() => {
     api
       .getInitialUserMe()
@@ -123,6 +130,7 @@ function App() {
         name=""
         isClose={handleClosePopup}
         isOpen={isAddPlacePopupOpen ? "true" : ""}
+        onAddPlaceSubmit={handleAddPlaceSubmit}
       ></AddPlacePopup>
       <EditAvatarPopup
         title="Cambiar foto de perfil"
