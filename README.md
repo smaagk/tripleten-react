@@ -1,4 +1,4 @@
-# Proyecto 10 "Alrededor de los EE.UU." (Using Create React App)
+# Proyecto 12 "Alrededor de los EE.UU." (Using Create React App)
 
 ## Descripción del proyecto:
 

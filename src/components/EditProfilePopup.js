@@ -2,8 +2,8 @@ import { useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function EditProfilePopup(props) {
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
   function handleChangeName(evt) {
     setName(evt.target.value);
