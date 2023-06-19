@@ -37,7 +37,7 @@ function App() {
     setisImagePopupOpen(false);
     setTimeout(() => {
       setselectedCard({});
-    }, 500);
+    }, 300);
   }
 
   function handleCardClick(oCard) {
@@ -128,27 +128,27 @@ function App() {
       <AddPlacePopup
         title="Nuevo lugar"
         name=""
-        isClose={handleClosePopup}
+        onClose={handleClosePopup}
         isOpen={isAddPlacePopupOpen ? "true" : ""}
         onAddPlaceSubmit={handleAddPlaceSubmit}
       ></AddPlacePopup>
       <EditAvatarPopup
         title="Cambiar foto de perfil"
         name=""
-        isClose={handleClosePopup}
+        onClose={handleClosePopup}
         isOpen={isEditAvatarPopupOpen ? "true" : ""}
         onUpdateAvatar={handleUpdateAvatar}
       />
       <EditProfilePopup
         title="Editar Perfil"
         name=""
-        isClose={handleClosePopup}
+        onClose={handleClosePopup}
         isOpen={isEditProfilePopupOpen ? "true" : ""}
         onUpdateUser={handleUpdateUser}
       />
       <ImagePopup
         selectedCard={selectedCard}
-        isClose={handleClosePopup}
+        onClose={handleClosePopup}
         isOpen={isImagePopupOpen ? "true" : ""}
       />
     </CurrentUserContext.Provider>

@@ -18,7 +18,7 @@ function ImagePopup(props) {
         <button
           className="overlay__form-close-button"
           id="closePreviewOverlay"
-          onClick={props.isClose}
+          onClick={props.onClose}
         ></button>
       </div>
     </section>

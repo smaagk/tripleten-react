@@ -13,7 +13,7 @@ function EditAvatarPopup(props) {
     <PopupWithForm
       title={props.title}
       isOpen={props.isOpen}
-      isClose={props.isClose}
+      onClose={props.onClose}
       onSubmit={handleSubmit}
     >
       <div className="overlay__form-input-grup">
