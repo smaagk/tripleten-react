@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto:
 
-Esta landing page que estás viendo es una colección de la experiencia de viaje de un usuario a través de los Estados Unidos, este proyecto se centra en el uso de CRA para generar el marcado con el uso de la sintaxis JSX.
+Esta landing page que estás viendo es una colección de la experiencia de viaje de un usuario a través de los Estados Unidos, este proyecto se centra en el uso de CRA para generar el marcado con el uso de la sintaxis JSX. La página web se comunica con los puntos de acceso de la API utilizando solicitudes de API REST.
 
 ## Tecnologías utilizadas:
 
@@ -36,4 +36,4 @@ Herramientas Extra
 
 ## Link del proyecto en git:
 
-[Proyecto 10 Alrededor de los EE.UU. (Using Create React App)](https://github.com/Dimaldon/around-react_es)
+[Proyecto 12 Alrededor de los EE.UU. (Using Create React App)](https://github.com/Dimaldon/around-react_es)
