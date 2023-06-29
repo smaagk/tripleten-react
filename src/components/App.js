@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -7,7 +8,6 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
 import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
   const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = useState(false);
@@ -46,13 +46,13 @@ function App() {
   }
 
   function handleCardLike(oCard) {
-    // Verifica una vez más si a esta tarjeta ya le han dado like
+    // Verifica una vez más si a esta tarjeta ya le he dado like
     const isLiked = oCard.likes.some((i) => i._id === currentUser._id);
 
     // Envía una petición a la API y obtén los datos actualizados de la tarjeta
     api.changeLikeCardStatus(oCard._id, !isLiked).then((newCard) => {
       setCards((state) =>
-        state.map((c) => (c._id === oCard._id ? newCard : c))
+        state.map((c) => (c._id === newCard._id ? newCard : c))
       );
     });
   }
