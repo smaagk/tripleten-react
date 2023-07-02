@@ -44,12 +44,15 @@ function App() {
     setselectedCard(oCard);
     setisImagePopupOpen(true);
   }
-
+  // handleCardLike se encarga de manejar el evento de dar "like" a una tarjeta
   function handleCardLike(oCard) {
-    // Verifica una vez más si a esta tarjeta ya le he dado like
-    const isLiked = oCard.likes.some((i) => i._id === currentUser._id);
+    // verifica si el usuario actual ya ha dado "like" a la tarjeta
+    const isLiked = oCard.likes.some(
+      (oUsuario) => oUsuario._id === currentUser._id
+    );
 
-    // Envía una petición a la API y obtén los datos actualizados de la tarjeta
+    // envía una solicitud a la API para cambiar el estado de "like" de la tarjeta
+    // recibe los datos actualizados de la tarjeta, actualiza el estado de las tarjetas en función de esos datos
     api.changeLikeCardStatus(oCard._id, !isLiked).then((newCard) => {
       setCards((state) =>
         state.map((c) => (c._id === newCard._id ? newCard : c))
