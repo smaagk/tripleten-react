@@ -4,6 +4,9 @@
 
 Esta landing page que estás viendo es una colección de la experiencia de viaje de un usuario a través de los Estados Unidos, este proyecto se centra en el uso de CRA para generar el marcado con el uso de la sintaxis JSX. La página web se comunica con los puntos de acceso de la API utilizando solicitudes de API REST.
 
+![Grabación de pantalla 2023-08-31 a la(s) 0 22 55](https://github.com/Dimaldon/around-react_es/assets/110069148/ce3ca9fa-8591-4992-aa40-1fe268d4e976)
+
+
 ## Tecnologías utilizadas:
 
 - HTML y CSS
